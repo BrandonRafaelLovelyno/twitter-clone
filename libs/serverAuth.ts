@@ -18,6 +18,8 @@ const serverAuth=async ()=>{
         throw new Error("You are not logged in")
     }
 
+    console.log(currentUser)
+
     return currentUser
 }
 

@@ -1,3 +1,4 @@
+import CommentDocument from "./CommentDocument";
 import UserDocument from "./UserDocument";
 
 export default interface PostDocument {
@@ -8,5 +9,6 @@ export default interface PostDocument {
   userId: string;
   likedIds: string[];
   image?: string;
-  user:UserDocument
+  user:UserDocument,
+  comments:CommentDocument[];
 }

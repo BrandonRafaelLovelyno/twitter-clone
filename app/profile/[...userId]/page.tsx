@@ -19,12 +19,15 @@ const ProfilePage: React.FC = () => {
   const { data: postData, isLoading: postLoading } = usePost({ userId });
 
   useEffect(() => {
-    if (!userData?.success && !userLoading) {
+    if(!userLoading){
+      return
+    }
+    if (userData?.data && userData?.success==false ) {
       throw new Error("There is no user with corresponding ID", {
         cause: "Invalid user ID",
       });
     }
-  }, [userData, userLoading]);
+  }, [userLoading]);
 
   return (
     <AnimatePresence>

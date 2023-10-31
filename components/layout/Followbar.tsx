@@ -37,7 +37,7 @@ const Followbar = () => {
               <Loader />
             </m.div>
           )}
-          {!isLoading &&
+          {!isLoading && data?.data &&
             data?.data.map((user) => (
               <m.div
                 initial={{ opacity: 0, y: 20 }}

@@ -7,6 +7,8 @@ import TweetForm from "@/components/tweet/TweetForm";
 import TweetFeed from "@/components/tweet/TweetFeed";
 import usePost from "@/hooks/usePost";
 import { Blocks } from "react-loader-spinner";
+import PostsApiResponse from "@/libs/postsApiResponse";
+import Login from "@/components/Login";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -43,14 +45,14 @@ export default function Home() {
           className="px-3 h-fit flex flex-col"
         >
           <Header title="Home" />
-          {session ? <TweetForm /> : <p>There is no user</p>}
+          {session ? <TweetForm /> : <Login />}
           <m.div
             transition={{ delay: 0.5, duration: 0.5 }}
             initial={{ opacity: 0, y: 20 }}
             animate={isLoading || !data?.data ? {} : { opacity: 1, y: 0 }}
             className="my-10 flex-1"
           >
-            <TweetFeed posts={data?.data} />
+            <TweetFeed posts={(data as PostsApiResponse)?.data} />
           </m.div>
         </m.main>
       )}
