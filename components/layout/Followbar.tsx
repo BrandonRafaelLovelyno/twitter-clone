@@ -37,9 +37,11 @@ const Followbar = () => {
               <Loader />
             </m.div>
           )}
-          {!isLoading && data?.data &&
+          {!isLoading &&
+            data?.data &&
             data?.data.map((user) => (
               <m.div
+                key={user.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: Math.random() * 2 }}

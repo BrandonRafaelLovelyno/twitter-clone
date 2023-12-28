@@ -94,7 +94,7 @@ const PostPage = ({ params }: { params: { postId: string } }) => {
         </div>
       </>
     );
-  }, [tweet, isLoading]);
+  }, [tweet, isLoading, handleClick, session]);
   return (
     <AnimatePresence>
       <m.main

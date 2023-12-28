@@ -43,7 +43,7 @@ const LoginModal = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [useLogin, email, password]);
+  }, [router, useLogin, email, password]);
 
   const onClose = useCallback(() => {
     useLogin.onClose();

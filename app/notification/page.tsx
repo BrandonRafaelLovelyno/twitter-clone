@@ -85,6 +85,7 @@ const NotificationPage = () => {
             {notifData!.data.length > 0 &&
               notifData.data.map((notif) => (
                 <m.div
+                  key={notif.id}
                   initial={{ opacity: 0, y: 20 }}
                   exit={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}

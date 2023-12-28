@@ -52,16 +52,16 @@ const RegisterModal = () => {
       console.log("finally got called");
       setIsLoading(false);
     }
-  }, [useLogin, email, username, name, password]);
+  }, [useRegister, useLogin, email, username, name, password]);
 
   const onClose = useCallback(() => {
     useRegister.onClose();
-  }, [useLogin]);
+  }, [useRegister]);
 
   const onToggle = useCallback(() => {
     useRegister.onClose();
     useLogin.onOpen();
-  }, [useLogin]);
+  }, [useLogin, useRegister]);
 
   const footerContent: React.ReactElement = useMemo(
     () => (
@@ -72,7 +72,7 @@ const RegisterModal = () => {
         </button>
       </p>
     ),
-    []
+    [onToggle]
   );
 
   const bodyLoading: React.ReactElement = <Loader />;

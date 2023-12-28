@@ -11,6 +11,7 @@ import UserBio from "@/components/users/UserBio";
 import Loader from "@/components/Loader";
 import TweetFeed from "@/components/tweet/TweetFeed";
 import usePost from "@/hooks/usePost";
+import PostDocument from "@/hooks/libs/PostDocument";
 
 const ProfilePage: React.FC = () => {
   const pathName = usePathname();
@@ -27,7 +28,7 @@ const ProfilePage: React.FC = () => {
         cause: "Invalid user ID",
       });
     }
-  }, [userLoading]);
+  }, [userLoading, userData?.data, userData?.success]);
 
   return (
     <AnimatePresence>
@@ -64,7 +65,7 @@ const ProfilePage: React.FC = () => {
             animate={postLoading || !postData?.data ? {} : { opacity: 1, y: 0 }}
             className="mt-10 px-5"
           >
-            <TweetFeed posts={postData.data} />
+            <TweetFeed posts={postData.data as PostDocument[]} />
           </m.div>
         )}
       </m.main>

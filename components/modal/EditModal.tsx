@@ -48,7 +48,7 @@ const EditModal: React.FC = () => {
       toast.error((err as Error).message);
       setIsLoading(false);
     }
-  }, [name, username, image, coverImage, bio]);
+  }, [updateSession, useEdit, name, username, image, coverImage, bio]);
 
   useEffect(() => {
     if (fetchLoading || !data?.data) {
@@ -93,7 +93,7 @@ const EditModal: React.FC = () => {
         />
       </div>
     );
-  }, [image, coverImage]);
+  }, [isLoading, image, coverImage]);
 
   const body = (
     <div className="flex flex-col gap-y-4 w-full">
