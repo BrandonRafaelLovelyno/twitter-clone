@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import prisma from "@/libs/prismadb";
+import prisma from "@/hooks/libs/prismadb";
 import bcrypt from "bcrypt";
-import emailChecker from "@/libs/emailChecker";
+import emailChecker from "@/hooks/libs/emailChecker";
 
 export async function POST(req: Request) {
   try {

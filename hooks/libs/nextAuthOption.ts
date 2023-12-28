@@ -1,7 +1,7 @@
 import { User } from "@prisma/client";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "@/libs/prismadb";
+import prisma from "@/hooks/libs/prismadb";
 import bcrypt from "bcrypt";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
@@ -45,16 +45,14 @@ const options: NextAuthOptions = {
   callbacks: {
     async jwt({ session, token, user, trigger }) {
       token.picture = "";
-
       if (trigger === "update" && session) {
-
         token.username = session.username;
         token.name = session.name;
         token.bio = session.bio;
-
       }
 
-      if (trigger!=='update'&&user && (user as User)) {
+      if (trigger !== "update" && user && (user as User)) {
+        console.log(token.email);
         return {
           ...token,
           username: (user as User).username,

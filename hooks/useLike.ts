@@ -2,9 +2,9 @@ import { useMemo, useState } from "react";
 import usePost from "./usePost";
 import { useSession } from "next-auth/react";
 import axios from "axios";
-import ApiResponse from "@/libs/apiResponse";
+import ApiResponse from "@/hooks/libs/apiResponse";
 import { toast } from "react-hot-toast";
-import PostApiResponse from "@/libs/postApiResponse";
+import PostApiResponse from "@/hooks/libs/postApiResponse";
 
 const useLike = (postId: string) => {
   const { data: session } = useSession();

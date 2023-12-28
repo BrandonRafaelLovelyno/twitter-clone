@@ -1,6 +1,6 @@
-import serverAuth from "@/libs/serverAuth";
+import serverAuth from "@/hooks/libs/serverAuth";
 import { NextResponse } from "next/server";
-import prisma from "@/libs/prismadb";
+import prisma from "@/hooks/libs/prismadb";
 
 export async function POST(req: Request) {
   try {

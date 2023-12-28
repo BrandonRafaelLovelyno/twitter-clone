@@ -8,11 +8,11 @@ import Modal from "./Modal";
 import useEditModal from "@/hooks/useEditModal";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { UserApiResponse } from "@/libs/userApiResponse";
+import { UserApiResponse } from "@/hooks/libs/userApiResponse";
 import FileInput from "../input/FileInput";
 import Loader from "../Loader";
 import { useSession } from "next-auth/react";
-import {mutate} from 'swr'
+import { mutate } from "swr";
 
 const EditModal: React.FC = () => {
   const useEdit = useEditModal();
@@ -38,8 +38,8 @@ const EditModal: React.FC = () => {
       if (!res.data.success) {
         throw new Error(res.data.message);
       }
-      mutate('/api/current',true)
-      mutate('/api/users',true)
+      mutate("/api/current", true);
+      mutate("/api/users", true);
       setIsLoading(false);
       await updateSession({ username, name, bio });
       toast.success("Editing success!");
@@ -48,7 +48,7 @@ const EditModal: React.FC = () => {
       toast.error((err as Error).message);
       setIsLoading(false);
     }
-  }, [ name, username, image, coverImage, bio]);
+  }, [name, username, image, coverImage, bio]);
 
   useEffect(() => {
     if (fetchLoading || !data?.data) {
@@ -68,7 +68,7 @@ const EditModal: React.FC = () => {
     return (
       <div className="flex flex-row gap-x-5 justify-between mb-5">
         <FileInput
-        value={image}
+          value={image}
           disabled={isLoading}
           onChange={(base64: string) => {
             setImage(base64);
@@ -80,7 +80,7 @@ const EditModal: React.FC = () => {
           }}
         />
         <FileInput
-        value={coverImage}
+          value={coverImage}
           disabled={isLoading}
           onChange={(base64: string) => {
             setCoverImage(base64);

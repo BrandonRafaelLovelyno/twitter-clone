@@ -1,9 +1,8 @@
-import prisma from "@/libs/prismadb";
+import prisma from "@/hooks/libs/prismadb";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
   try {
-
     const users = await prisma.user.findMany({
       orderBy: {
         createdAt: "desc",

@@ -7,7 +7,7 @@ import TweetForm from "@/components/tweet/TweetForm";
 import TweetFeed from "@/components/tweet/TweetFeed";
 import usePost from "@/hooks/usePost";
 import { Blocks } from "react-loader-spinner";
-import PostsApiResponse from "@/libs/postsApiResponse";
+import PostsApiResponse from "@/hooks/libs/postsApiResponse";
 import Login from "@/components/Login";
 
 export default function Home() {

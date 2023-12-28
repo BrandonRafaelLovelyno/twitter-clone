@@ -1,4 +1,4 @@
-import PostDocument from "@/libs/PostDocument";
+import PostDocument from "@/hooks/libs/PostDocument";
 import React from "react";
 import TweetItem from "./TweetItem";
 
@@ -7,7 +7,11 @@ interface TweetFeedProps {
 }
 
 const TweetFeed: React.FC<TweetFeedProps> = ({ posts }) => {
-  return <div className="flex flex-col gap-y-5">{posts ? posts.map((post) => <TweetItem post={post} />) : null}</div>;
+  return (
+    <div className="flex flex-col gap-y-5">
+      {posts ? posts.map((post) => <TweetItem post={post} />) : null}
+    </div>
+  );
 };
 
 export default TweetFeed;

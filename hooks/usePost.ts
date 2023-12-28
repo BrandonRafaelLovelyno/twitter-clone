@@ -1,6 +1,6 @@
-import fetcher from "@/libs/fetcher";
-import PostApiResponse from "@/libs/postApiResponse";
-import PostsApiResponse from "@/libs/postsApiResponse";
+import fetcher from "@/hooks/libs/fetcher";
+import PostApiResponse from "@/hooks/libs/postApiResponse";
+import PostsApiResponse from "@/hooks/libs/postsApiResponse";
 import useSWR from "swr";
 
 interface UsePostParams {

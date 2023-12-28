@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import userIDPathFetcher from "@/libs/userIDPathFetcher";
+import userIDPathFetcher from "@/hooks/libs/userIDPathFetcher";
 import Header from "@/components/layout/Header";
 import { motion as m, AnimatePresence } from "framer-motion";
 import useUser from "@/hooks/useUser";
@@ -19,10 +19,10 @@ const ProfilePage: React.FC = () => {
   const { data: postData, isLoading: postLoading } = usePost({ userId });
 
   useEffect(() => {
-    if(!userLoading){
-      return
+    if (!userLoading) {
+      return;
     }
-    if (userData?.data && userData?.success==false ) {
+    if (userData?.data && userData?.success == false) {
       throw new Error("There is no user with corresponding ID", {
         cause: "Invalid user ID",
       });

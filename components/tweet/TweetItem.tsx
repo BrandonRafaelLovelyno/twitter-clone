@@ -1,6 +1,6 @@
 "use client";
 
-import PostDocument from "@/libs/PostDocument";
+import PostDocument from "@/hooks/libs/PostDocument";
 import React, { useState } from "react";
 import Avatar from "../Avatar";
 import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";

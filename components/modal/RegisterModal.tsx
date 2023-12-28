@@ -7,9 +7,9 @@ import Input from "../input/Input";
 import { useState, useCallback } from "react";
 import useRegisterModal from "@/hooks/useRegisterModal";
 import useLoginModal from "@/hooks/useLoginModal";
-import {toast} from "react-hot-toast";
-import {signIn} from 'next-auth/react'
-import ApiResponse from "@/libs/apiResponse";
+import { toast } from "react-hot-toast";
+import { signIn } from "next-auth/react";
+import ApiResponse from "@/hooks/libs/apiResponse";
 import Loader from "../Loader";
 
 const RegisterModal = () => {
@@ -25,36 +25,34 @@ const RegisterModal = () => {
     try {
       setIsLoading(true);
 
-      const {data}=await axios.post('/api/register',{
+      const { data } = await axios.post("/api/register", {
         email,
         name,
         username,
-        password
-      })
+        password,
+      });
 
-      const response:ApiResponse=data
+      const response: ApiResponse = data;
 
-      if(!response.success){
-        throw new Error(response.message) 
+      if (!response.success) {
+        throw new Error(response.message);
       }
 
-
-      signIn('credentials',{
+      signIn("credentials", {
         email,
-        password
-      })
-      
-      toast.success('Register success')
+        password,
+      });
 
-      useRegister.onClose()
+      toast.success("Register success");
 
+      useRegister.onClose();
     } catch (e) {
-      toast.error((e as Error).message)
+      toast.error((e as Error).message);
     } finally {
-      console.log('finally got called')
+      console.log("finally got called");
       setIsLoading(false);
     }
-  }, [useLogin,email,username,name,password]);
+  }, [useLogin, email, username, name, password]);
 
   const onClose = useCallback(() => {
     useRegister.onClose();
@@ -65,16 +63,19 @@ const RegisterModal = () => {
     useLogin.onOpen();
   }, [useLogin]);
 
-  const footerContent: React.ReactElement = useMemo(()=>(
-    <p>
-      Already have an account?
-      <button onClick={onToggle} className="font-bold text-blue-500 ml-2">
-        Log In!
-      </button>
-    </p>),[]
+  const footerContent: React.ReactElement = useMemo(
+    () => (
+      <p>
+        Already have an account?
+        <button onClick={onToggle} className="font-bold text-blue-500 ml-2">
+          Log In!
+        </button>
+      </p>
+    ),
+    []
   );
-  
-  const bodyLoading:React.ReactElement=(<Loader/>)
+
+  const bodyLoading: React.ReactElement = <Loader />;
 
   const bodyContent: React.ReactElement = (
     <div className="flex flex-col gap-y-4 w-full">
@@ -120,7 +121,7 @@ const RegisterModal = () => {
     <Modal
       title="Register"
       label="Create my account !"
-      body={isLoading?bodyLoading:bodyContent}
+      body={isLoading ? bodyLoading : bodyContent}
       onClose={onClose}
       isOpen={useRegister.isOpen}
       onSubmit={onSubmit}

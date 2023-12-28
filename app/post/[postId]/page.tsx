@@ -11,14 +11,14 @@ import { motion as m, AnimatePresence } from "framer-motion";
 import Header from "@/components/layout/Header";
 import { useSession } from "next-auth/react";
 import { Blocks } from "react-loader-spinner";
-import PostApiResponse from "@/libs/postApiResponse";
+import PostApiResponse from "@/hooks/libs/postApiResponse";
 import TweetItem from "@/components/tweet/TweetItem";
 import Avatar from "@/components/Avatar";
 import Input from "@/components/input/Input";
 import Button from "@/components/Button";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import ApiResponse from "@/libs/apiResponse";
+import ApiResponse from "@/hooks/libs/apiResponse";
 import { formatDistanceToNowStrict } from "date-fns";
 import Login from "@/components/Login";
 

@@ -1,5 +1,5 @@
-import fetcher from "@/libs/fetcher";
-import NotificationApiResponse from "@/libs/notificationApiResponse";
+import fetcher from "@/hooks/libs/fetcher";
+import NotificationApiResponse from "@/hooks/libs/notificationApiResponse";
 import useSWR from "swr";
 
 const useNotification = () => {
