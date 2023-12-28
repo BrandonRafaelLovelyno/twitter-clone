@@ -11,7 +11,7 @@ import PostsApiResponse from "@/hooks/libs/postsApiResponse";
 import Login from "@/components/Login";
 
 export default function Home() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const { data, isLoading } = usePost();
 
   return (
@@ -45,7 +45,7 @@ export default function Home() {
           className="px-3 h-fit flex flex-col"
         >
           <Header title="Home" />
-          {session ? <TweetForm /> : <Login />}
+          {status == "authenticated" ? <TweetForm /> : <Login />}
           <m.div
             transition={{ delay: 0.5, duration: 0.5 }}
             initial={{ opacity: 0, y: 20 }}
