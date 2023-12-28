@@ -10,6 +10,7 @@ import RegisterModal from "@/components/modal/RegisterModal";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
 import EditModal from "@/components/modal/EditModal";
+import options from "@/hooks/libs/nextAuthOption";
 
 const lato = Lato({ subsets: ["latin"], weight: "400" });
 
@@ -23,7 +24,7 @@ interface LayoutProps {
 }
 
 const RootLayout: React.FC<LayoutProps> = async ({ children }) => {
-  const session = await getServerSession();
+  const session = await getServerSession(options);
   return (
     <html lang="en">
       <body
