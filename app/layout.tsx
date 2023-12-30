@@ -24,8 +24,6 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-export const dynamic = "force-dynamic";
-
 const RootLayout: React.FC<LayoutProps> = async ({ children }) => {
   const session = await getServerSession(options);
   return (
