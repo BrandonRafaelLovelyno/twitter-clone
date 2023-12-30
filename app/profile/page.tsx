@@ -9,6 +9,8 @@ import { AnimatePresence, motion as m } from "framer-motion";
 import { useSession } from "next-auth/react";
 import React, { useEffect } from "react";
 
+export const dynamic = "force-dynamic";
+
 const CurrentProfilePage = () => {
   const { data, isLoading } = useCurrent();
   const { data: session } = useSession();

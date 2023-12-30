@@ -14,6 +14,8 @@ import Loader from "../Loader";
 import { useSession } from "next-auth/react";
 import { mutate } from "swr";
 
+export const dynamic = "force-dynamic";
+
 const EditModal: React.FC = () => {
   const useEdit = useEditModal();
   const { data, isLoading: fetchLoading } = useCurrent();
