@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import prisma from "@/hooks/libs/prismadb";
 import serverAuth from "@/hooks/libs/serverAuth";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: Request) {
   try {
     const currentUser = await serverAuth();
