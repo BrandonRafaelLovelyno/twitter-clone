@@ -11,6 +11,7 @@ import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
 import EditModal from "@/components/modal/EditModal";
 import options from "@/hooks/libs/nextAuthOption";
+import AnimatePresence from "@/components/AnimatePresence";
 
 const lato = Lato({ subsets: ["latin"], weight: "400" });
 
@@ -39,17 +40,19 @@ const RootLayout: React.FC<LayoutProps> = async ({ children }) => {
           <EditModal />
           <RegisterModal />
           <LoginModal />
-          <div className="container mx-auto grid grid-cols-4 h-screen">
-            <Sidebar />
-            <div
-              className={twMerge(
-                "lg:col-span-2 col-span-3 border-neutral-800 border-x-[1px] overflow-auto"
-              )}
-            >
-              {children}
+          <AnimatePresence>
+            <div className="container mx-auto grid grid-cols-4 h-screen">
+              <Sidebar />
+              <div
+                className={twMerge(
+                  "lg:col-span-2 col-span-3 border-neutral-800 border-x-[1px] overflow-auto"
+                )}
+              >
+                {children}
+              </div>
+              <Followbar />
             </div>
-            <Followbar />
-          </div>
+          </AnimatePresence>
         </SessionProvider>
       </body>
     </html>

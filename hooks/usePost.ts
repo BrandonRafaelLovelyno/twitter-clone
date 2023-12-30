@@ -21,13 +21,19 @@ const usePost = (params?: UsePostParams) => {
   if (!params?.postId) {
     const { data, error, isLoading, mutate } = useSWR<PostsApiResponse>(
       url,
-      fetcher
+      fetcher,
+      {
+        refreshInterval: 100,
+      }
     );
     return { data, error, isLoading, mutate };
   } else {
     const { data, error, isLoading, mutate } = useSWR<PostApiResponse>(
       url,
-      fetcher
+      fetcher,
+      {
+        refreshInterval: 100,
+      }
     );
     return { data, error, isLoading, mutate };
   }
