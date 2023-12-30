@@ -11,7 +11,7 @@ import PostsApiResponse from "@/hooks/libs/postsApiResponse";
 import Login from "@/components/Login";
 
 export default function Home() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const { data, isLoading } = usePost();
 
   return (
