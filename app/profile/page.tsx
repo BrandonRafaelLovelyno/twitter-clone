@@ -20,32 +20,33 @@ const CurrentProfilePage = () => {
     }
   }, [data, isLoading]);
 
+  console.log(data);
+  console.log("session", session);
+
   return (
-    <AnimatePresence>
-      <m.main
-        initial={{ opacity: 0, y: -20 }}
-        exit={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full h-full"
-      >
-        {isLoading && (
-          <div className="w-full h-full flex items-center justify-center">
-            <Loader />
-          </div>
-        )}
-        {!isLoading && data?.success && (
-          <>
-            <Header
-              title={session?.user.username ? session.user.username : "..."}
-              backButton
-            />
-            <UserHero user={data.data} />
-            <UserBio user={data.data} />
-          </>
-        )}
-      </m.main>
-    </AnimatePresence>
+    <m.main
+      initial={{ opacity: 0, y: -20 }}
+      exit={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="w-full h-full"
+    >
+      {isLoading && (
+        <div className="w-full h-full flex items-center justify-center">
+          <Loader />
+        </div>
+      )}
+      {!isLoading && data?.success && (
+        <>
+          <Header
+            title={session?.user.username ? session.user.username : "..."}
+            backButton
+          />
+          <UserHero user={data.data} />
+          <UserBio user={data.data} />
+        </>
+      )}
+    </m.main>
   );
 };
 

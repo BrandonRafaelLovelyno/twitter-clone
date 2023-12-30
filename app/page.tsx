@@ -9,15 +9,21 @@ import usePost from "@/hooks/usePost";
 import { Blocks } from "react-loader-spinner";
 import PostsApiResponse from "@/hooks/libs/postsApiResponse";
 import Login from "@/components/Login";
+import { useMemo } from "react";
 
 export default function Home() {
   const { data: session, status } = useSession();
   const { data, isLoading } = usePost();
-
+  const form = useMemo(() => {
+    if (!session || status !== "authenticated") {
+      return <Login />;
+    }
+    return <TweetForm />;
+  }, [session, status]);
   console.log("session", session);
 
   return (
-    <AnimatePresence>
+    <>
       {isLoading && (
         <div className="w-full h-screen pb-10 flex justify-center items-center">
           <m.div
@@ -47,7 +53,7 @@ export default function Home() {
           className="px-3 h-fit flex flex-col"
         >
           <Header title="Home" />
-          {status == "authenticated" ? <TweetForm /> : <Login />}
+          {form}
           <m.div
             transition={{ delay: 0.5, duration: 0.5 }}
             initial={{ opacity: 0, y: 20 }}
@@ -58,6 +64,6 @@ export default function Home() {
           </m.div>
         </m.main>
       )}
-    </AnimatePresence>
+    </>
   );
 }

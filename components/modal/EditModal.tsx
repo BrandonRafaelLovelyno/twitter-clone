@@ -131,20 +131,18 @@ const EditModal: React.FC = () => {
   const bodyLoading = <Loader />;
 
   return (
-    <AnimatePresence>
-      <Modal
-        body={isLoading ? bodyLoading : body}
-        isOpen={useEdit.isOpen}
-        onClose={useEdit.onClose}
-        label="Edit!"
-        onSubmit={onSubmit}
-        title="Edit Profile"
-        isLoading={false}
-        hideButton={isLoading ? true : false}
-        buttonClassName="w-full py-3"
-        secondary
-      />
-    </AnimatePresence>
+    <Modal
+      body={isLoading ? bodyLoading : body}
+      isOpen={useEdit.isOpen}
+      onClose={useEdit.onClose}
+      label="Edit!"
+      onSubmit={onSubmit}
+      title="Edit Profile"
+      isLoading={false}
+      hideButton={isLoading ? true : false}
+      buttonClassName="w-full py-3"
+      secondary
+    />
   );
 };
 

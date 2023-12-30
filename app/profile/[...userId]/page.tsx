@@ -31,45 +31,43 @@ const ProfilePage: React.FC = () => {
   }, [userLoading, userData?.data, userData?.success]);
 
   return (
-    <AnimatePresence>
-      <m.main
-        initial={{ opacity: 0, y: -20 }}
-        exit={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full min-h-fit pb-10"
-      >
-        {userLoading && (
-          <div className="w-full h-full flex items-center justify-center">
-            <Loader />
-          </div>
-        )}
-        {!userLoading && userData?.success && (
-          <>
-            <Header
-              title={
-                userLoading || !userData || !userData.data
-                  ? "..."
-                  : userData.data.username
-              }
-              backButton
-            />
-            <UserHero user={userData.data} />
-            <UserBio user={userData.data} />
-          </>
-        )}
-        {!postLoading && postData?.data && (
-          <m.div
-            transition={{ delay: 0.5, duration: 0.5 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={postLoading || !postData?.data ? {} : { opacity: 1, y: 0 }}
-            className="mt-10 px-5"
-          >
-            <TweetFeed posts={postData.data as PostDocument[]} />
-          </m.div>
-        )}
-      </m.main>
-    </AnimatePresence>
+    <m.main
+      initial={{ opacity: 0, y: -20 }}
+      exit={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="w-full min-h-fit pb-10"
+    >
+      {userLoading && (
+        <div className="w-full h-full flex items-center justify-center">
+          <Loader />
+        </div>
+      )}
+      {!userLoading && userData?.success && (
+        <>
+          <Header
+            title={
+              userLoading || !userData || !userData.data
+                ? "..."
+                : userData.data.username
+            }
+            backButton
+          />
+          <UserHero user={userData.data} />
+          <UserBio user={userData.data} />
+        </>
+      )}
+      {!postLoading && postData?.data && (
+        <m.div
+          transition={{ delay: 0.5, duration: 0.5 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={postLoading || !postData?.data ? {} : { opacity: 1, y: 0 }}
+          className="mt-10 px-5"
+        >
+          <TweetFeed posts={postData.data as PostDocument[]} />
+        </m.div>
+      )}
+    </m.main>
   );
 };
 

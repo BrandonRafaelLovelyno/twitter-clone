@@ -34,70 +34,68 @@ const NotificationPage = () => {
   }, [notifData, notifLoading]);
 
   return (
-    <AnimatePresence>
-      <m.main
-        key="main page"
-        initial={{ opacity: 0, y: 20 }}
-        exit={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="px-3 h-fit flex flex-col"
-      >
-        {notifLoading && (
-          <div className="w-full h-screen pb-10 flex justify-center items-center">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              exit={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Blocks
-                visible={true}
-                height="80"
-                width="80"
-                ariaLabel="blocks-loading"
-                wrapperStyle={{}}
-                wrapperClass="blocks-wrapper"
-              />
-            </m.div>
-          </div>
-        )}
-        {!notifLoading && notifData?.data && (
+    <m.main
+      key="main page"
+      initial={{ opacity: 0, y: 20 }}
+      exit={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="px-3 h-fit flex flex-col"
+    >
+      {notifLoading && (
+        <div className="w-full h-screen pb-10 flex justify-center items-center">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             exit={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Header
-              title={
-                session?.user
-                  ? `${session?.user.username}'s notification`
-                  : "Notification"
-              }
-              backButton
+            <Blocks
+              visible={true}
+              height="80"
+              width="80"
+              ariaLabel="blocks-loading"
+              wrapperStyle={{}}
+              wrapperClass="blocks-wrapper"
             />
-            {notifData!.data.length <= 0 && (
-              <p className="text-neutral-500 text-center font-bold text-xl">
-                There is no notification
-              </p>
-            )}
-            {notifData!.data.length > 0 &&
-              notifData.data.map((notif) => (
-                <m.div
-                  key={notif.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <Notification body={notif.body} />
-                </m.div>
-              ))}
           </m.div>
-        )}
-      </m.main>
-    </AnimatePresence>
+        </div>
+      )}
+      {!notifLoading && notifData?.data && (
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          exit={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Header
+            title={
+              session?.user
+                ? `${session?.user.username}'s notification`
+                : "Notification"
+            }
+            backButton
+          />
+          {notifData!.data.length <= 0 && (
+            <p className="text-neutral-500 text-center font-bold text-xl">
+              There is no notification
+            </p>
+          )}
+          {notifData!.data.length > 0 &&
+            notifData.data.map((notif) => (
+              <m.div
+                key={notif.id}
+                initial={{ opacity: 0, y: 20 }}
+                exit={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Notification body={notif.body} />
+              </m.div>
+            ))}
+        </m.div>
+      )}
+    </m.main>
   );
 };
 

@@ -75,27 +75,25 @@ const TweetItem: React.FC<TweetItemProps> = ({ post, noBorder }) => {
               disabled={isLikeLoading}
               onClick={handleLike}
             >
-              <AnimatePresence>
-                {hasLiked ? (
-                  <m.div
-                    exit={{ scale: 0 }}
-                    transition={{ duration: 0.5 }}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                  >
-                    <AiTwotoneHeart size={20} />
-                  </m.div>
-                ) : (
-                  <m.div
-                    exit={{ scale: 0 }}
-                    transition={{ duration: 0.5 }}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                  >
-                    <AiOutlineHeart size={20} />
-                  </m.div>
-                )}
-              </AnimatePresence>
+              {hasLiked ? (
+                <m.div
+                  exit={{ scale: 0 }}
+                  transition={{ duration: 0.5 }}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                >
+                  <AiTwotoneHeart size={20} />
+                </m.div>
+              ) : (
+                <m.div
+                  exit={{ scale: 0 }}
+                  transition={{ duration: 0.5 }}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                >
+                  <AiOutlineHeart size={20} />
+                </m.div>
+              )}
             </button>
           </m.div>
           <m.div
