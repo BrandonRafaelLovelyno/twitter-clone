@@ -11,8 +11,10 @@ import PostsApiResponse from "@/hooks/libs/postsApiResponse";
 import Login from "@/components/Login";
 
 export default function Home() {
-  const { status } = useSession();
+  const { data: session, status } = useSession();
   const { data, isLoading } = usePost();
+
+  console.log("session", session);
 
   return (
     <AnimatePresence>
