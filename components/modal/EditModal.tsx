@@ -40,8 +40,8 @@ const EditModal: React.FC = () => {
       if (!res.data.success) {
         throw new Error(res.data.message);
       }
-      mutate("/api/current", true);
-      mutate("/api/users", true);
+      await mutate("/api/current", true);
+      await mutate("/api/users", true);
       setIsLoading(false);
       await updateSession({ username, name, bio });
       toast.success("Editing success!");

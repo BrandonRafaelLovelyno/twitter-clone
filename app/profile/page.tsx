@@ -12,15 +12,20 @@ import React, { useEffect } from "react";
 export const dynamic = "force-dynamic";
 
 const CurrentProfilePage = () => {
-  const { data, isLoading } = useCurrent();
-  const { data: session } = useSession();
+  const { data, isLoading, isValidating } = useCurrent();
+  const { data: session, status } = useSession();
   useEffect(() => {
-    if (!data?.success && !isLoading) {
+    if (
+      !data?.success &&
+      status !== "authenticated" &&
+      !isLoading &&
+      !isValidating
+    ) {
       throw new Error("You are not logged in", {
         cause: "There is no user session",
       });
     }
-  }, [data, isLoading]);
+  }, [data, isLoading, isValidating, status]);
 
   console.log(data);
   console.log("session", session);
