@@ -24,7 +24,6 @@ const LoginModal = () => {
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
-      console.log(email, password);
       const response = await axios.post<UserApiResponse>("/api/login", {
         email,
         password,
@@ -52,7 +51,7 @@ const LoginModal = () => {
   const onToggle = useCallback(() => {
     useLogin.onClose();
     useRegister.onOpen();
-  }, [useLogin]);
+  }, [useLogin, useRegister]);
 
   const footerContent: React.ReactElement = (
     <p>

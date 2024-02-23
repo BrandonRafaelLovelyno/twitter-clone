@@ -52,7 +52,6 @@ const options: NextAuthOptions = {
       }
 
       if (trigger !== "update" && user && (user as User)) {
-        console.log(token.email);
         return {
           ...token,
           username: (user as User).username,

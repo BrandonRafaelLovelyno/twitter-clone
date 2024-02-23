@@ -90,7 +90,6 @@ export async function DELETE(req: Request) {
 
     return NextResponse.json({ data: updatedPost, success: true, message: "" });
   } catch (err) {
-    console.log("delete error");
     return NextResponse.json({
       data: {},
       message: (err as Error).message,

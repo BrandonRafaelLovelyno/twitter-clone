@@ -49,10 +49,9 @@ const RegisterModal = () => {
     } catch (e) {
       toast.error((e as Error).message);
     } finally {
-      console.log("finally got called");
       setIsLoading(false);
     }
-  }, [useRegister, useLogin, email, username, name, password]);
+  }, [useRegister, email, username, name, password]);
 
   const onClose = useCallback(() => {
     useRegister.onClose();

@@ -4,6 +4,7 @@ import usePost from "@/hooks/usePost";
 import React, {
   ReactComponentElement,
   ReactElement,
+  useCallback,
   useMemo,
   useState,
 } from "react";
@@ -33,7 +34,7 @@ const PostPage = ({ params }: { params: { postId: string } }) => {
     postId: params.postId,
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const handleClick = async () => {
+  const handleClick = useCallback(async () => {
     setIsLoading(true);
     try {
       const res = await axios.post<ApiResponse>("/api/comment", {
@@ -51,7 +52,7 @@ const PostPage = ({ params }: { params: { postId: string } }) => {
       setIsLoading(false);
       setTweet("");
     }
-  };
+  }, [mutatePost, params.postId, tweet]);
   const BottomLoginBar: ReactElement = useMemo(() => {
     if (session?.user) return <></>;
     return (

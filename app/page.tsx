@@ -20,7 +20,6 @@ export default function Home() {
     }
     return <TweetForm />;
   }, [session, status]);
-  console.log("session", session);
 
   return (
     <>

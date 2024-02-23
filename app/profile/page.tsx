@@ -27,9 +27,6 @@ const CurrentProfilePage = () => {
     }
   }, [data, isLoading, isValidating, status]);
 
-  console.log(data);
-  console.log("session", session);
-
   return (
     <m.main
       initial={{ opacity: 0, y: -20 }}
