@@ -34,13 +34,7 @@ const RootLayout: React.FC<LayoutProps> = async ({ children }) => {
   const session = await getServerSession(options);
   return (
     <html lang="en">
-      <body
-        className={twMerge(
-          lato.className,
-          "w-screen h-screen",
-          "bg-black text-white"
-        )}
-      >
+      <body className={twMerge(lato.className, "bg-black text-white")}>
         <SessionProvider session={session}>
           <Toaster />
           <EditModal />

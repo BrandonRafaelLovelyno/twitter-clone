@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    height: calc(100vh - 50px);
+  }
+}
+
 textarea::-webkit-scrollbar {
   width: 12px;
 }
