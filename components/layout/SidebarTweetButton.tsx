@@ -21,7 +21,7 @@ const SidebarTweetButton = () => {
   };
   return (
     <div
-      className="cursor-pointer w-fit md:w-full md:py-2 max-md:p-3 h-fit rounded-full bg-blue-500 items-center justify-center gap-x-3 font-bold text-sm mt-6 flex flex-row duration-300"
+      className="cursor-pointer w-fit md:w-full md:py-2 max-md:p-3 h-fit rounded-full bg-blue-500 items-center justify-center gap-x-3 font-bold text-sm lg:mt-6 flex flex-row duration-300"
       onClick={handleClick}
     >
       <p className="hidden md:block">Tweet</p>

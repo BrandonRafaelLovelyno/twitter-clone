@@ -41,7 +41,7 @@ const SideBarItem: React.FC<SideBarItemProps> = ({
   return (
     <div
       className={twMerge(
-        "flex w-full gap-x-5 items-center justify-center md:justify-start duration-300 cursor-pointer",
+        "flex lg:w-full gap-x-5 items-center justify-center md:justify-start duration-300 cursor-pointer",
         isActive && "text-blue-500"
       )}
       onClick={handleClick}

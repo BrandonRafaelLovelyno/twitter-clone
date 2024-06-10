@@ -46,11 +46,14 @@ const TweetItem: React.FC<TweetItemProps> = ({ post, noBorder }) => {
         <div className="flex flex-row  gap-x-3 items-center">
           <p className="text-white font-bold">{post.user.name}</p>
           <p className="text-neutral-500">{"@" + post.user.username}</p>
-          <p className="text-neutral-500 font-semibold text-sm">
+          <p className="text-neutral-500 font-semibold text-sm max-lg:hidden">
             {elapsedDate}
           </p>
         </div>
         <div className="mt-2">
+          <p className="text-neutral-500 font-semibold text-sm lg:hidden">
+            {elapsedDate}
+          </p>
           <p className="text-neutral-300">{post.body}</p>
         </div>
         <div className="flex flex-row mt-5 gap-x-5 items-center">

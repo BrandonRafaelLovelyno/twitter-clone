@@ -11,7 +11,7 @@ import SidebarLogo from "./SidebarLogo";
 import { usePathname } from "next/navigation";
 import SidebarTweetButton from "./SidebarTweetButton";
 import { signOut, useSession } from "next-auth/react";
-import {motion as m} from 'framer-motion'
+import { motion as m } from "framer-motion";
 
 interface SidebarItem {
   label: string;
@@ -40,7 +40,12 @@ const Sidebar = () => {
     },
   ];
   return (
-    <m.div className="flex flex-col items-center md:items-start px-3 gap-y-5 font-bold pt-3" initial={{opacity:0,y:-20}} animate={{opacity:1,y:0}} transition={{duration:0.4}}>
+    <m.div
+      className="flex lg:flex-col max-lg:flex-row max-lg:items-center lg:items-start lg:justify-start max-lg:pb-4 max-lg:border-t-2 max-lg:justify-center px-3 gap-y-5 max-lg:gap-x-5 font-bold pt-3"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       <SidebarLogo />
       {items.map((item) => (
         <SideBarItem

@@ -37,7 +37,7 @@ const RootLayout: React.FC<LayoutProps> = async ({ children }) => {
       <body
         className={twMerge(
           lato.className,
-          "h-screen w-full",
+          "w-screen h-screen",
           "bg-black text-white"
         )}
       >
@@ -47,14 +47,19 @@ const RootLayout: React.FC<LayoutProps> = async ({ children }) => {
           <RegisterModal />
           <LoginModal />
           <AnimatePresence>
-            <div className="container mx-auto grid grid-cols-4 h-screen">
-              <Sidebar />
+            <div className="mx-auto max-lg:flex max-lg:flex-col lg:grid lg:grid-cols-4 h-full">
+              <div className="max-lg:hidden">
+                <Sidebar />
+              </div>
               <div
                 className={twMerge(
-                  "lg:col-span-2 col-span-3 border-neutral-800 border-x-[1px] overflow-auto"
+                  "lg:col-span-2 md:col-span-3 max-lg:w-full max-lg:flex-1 border-neutral-800 border-x-[1px] overflow-auto"
                 )}
               >
                 {children}
+              </div>
+              <div className="lg:hidden">
+                <Sidebar />
               </div>
               <Followbar />
             </div>

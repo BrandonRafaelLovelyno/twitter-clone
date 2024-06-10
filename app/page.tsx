@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       {isLoading && (
-        <div className="w-full h-screen pb-10 flex justify-center items-center">
+        <div className="w-full h-full pb-10 flex justify-center items-center">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             exit={{ opacity: 0, y: 20 }}

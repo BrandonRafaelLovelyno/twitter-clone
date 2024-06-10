@@ -42,7 +42,7 @@ const Modal: React.FC<ModalProps> = ({
           )}
         >
           <m.div
-            className="bg-black py-5 px-8 flex-col rounded-lg flex justify-center items-center lg:w-3/6 lg:max-w-3xl h-fit"
+            className="bg-black py-5 px-8 flex-col rounded-lg flex justify-center items-center max-lg:w-[90%] lg:w-3/6 lg:max-w-3xl h-fit"
             initial={{ scale: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -62,7 +62,7 @@ const Modal: React.FC<ModalProps> = ({
             <div className="p-10 w-full">{body}</div>
             {/* Footer */}
             <div className="flex flex-col items-center gap-2 p-5 w-full">
-              { (!hideButton&&!isLoading) && (
+              {!hideButton && !isLoading && (
                 <Button
                   className={buttonClassName || ""}
                   label={label}

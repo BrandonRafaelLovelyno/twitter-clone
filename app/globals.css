@@ -12,19 +12,19 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 12px;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 0.5em;
   color: #0066cc;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background: #3366cc;
   border-radius: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background: #00ccff;
   border-radius: 12px;
 }
